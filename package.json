@@ -1,0 +1,23 @@
+{
+  "name": "commonform-validate-directions",
+  "description": "validate Common Form directions",
+  "version": "0.0.0",
+  "author": "Kyle E. Mitchell <kyle@kemitchell.com> (https://kemitchell.com/)",
+  "dependences": {
+    "commonform-directions-schema": "^1.0.0"
+  },
+  "devDependencies": {
+    "ajv": "^5.2.2",
+    "commonform-analyze": "^1.0.0",
+    "defence-cli": "^2.0.1",
+    "replace-require-self": "^1.1.1"
+  },
+  "files": [
+    "index.js"
+  ],
+  "license": "Apache-2.0",
+  "repository": "kemitchell/commonform-validate-directions.js",
+  "scripts": {
+    "test": "defence -i javascript README.md | replace-require-self | node"
+  }
+}

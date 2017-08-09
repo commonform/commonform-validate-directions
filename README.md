@@ -84,7 +84,7 @@ assert.deepEqual(
     },
     {
       index: 0,
-      message: 'examples is not an array' 
+      message: 'examples is not an array'
     },
     {
       index: 1,
@@ -110,11 +110,11 @@ assert.deepEqual(
     [
       {
         blank: ['content', 1],
-        invalid: "First Party Name"
+        invalid: 'First Party Name'
       },
       {
         blank: ['content', 3],
-        label: "Second Party Name",
+        label: 'Second Party Name',
         notes: ['Use the legal name of the second party.'],
         examples: ['SomeCo, Inc.']
       }
@@ -150,12 +150,12 @@ assert.deepEqual(
     [
       {
         blank: ['content', 2],
-        label: "First Party Name",
+        label: 'First Party Name',
         notes: ['Use the legal name of the first party.']
       },
       {
         blank: ['content', 3],
-        label: "Second Party Name",
+        label: 'Second Party Name',
         notes: ['Use the legal name of the second party.']
       },
       null
@@ -187,17 +187,17 @@ assert.deepEqual(
     [
       {
         blank: ['content', 1],
-        label: "First Party Name",
+        label: 'First Party Name',
         notes: ['Use the legal name of the first party.']
       },
       {
         blank: ['content', 3],
-        label: "Second Party Name",
+        label: 'Second Party Name',
         notes: ['Use the legal name of the second party.']
       },
       {
         blank: ['content', 3],
-        label: "Second Party Name",
+        label: 'Second Party Name',
         notes: ['Use the legal name of the second party.']
       }
     ]
@@ -220,12 +220,12 @@ assert.deepEqual(
     },
     [
       {
-        label: "First Party Name",
+        label: 'First Party Name',
         notes: ['Use the legal name of the first party.']
       },
       {
         blank: ['invalid', 'data'],
-        label: "Bad Address",
+        label: 'Bad Address',
         notes: ['Use the legal name of the first party.']
       },
       {
@@ -234,12 +234,12 @@ assert.deepEqual(
       },
       {
         blank: ['content', 1],
-        label: "First Party Name",
+        label: 'First Party Name',
         notes: ['Use the legal name of the first party.']
       },
       {
         blank: ['content', 3],
-        label: "Second Party Name",
+        label: 'Second Party Name',
         notes: ['Use the legal name of the second party.']
       }
     ]

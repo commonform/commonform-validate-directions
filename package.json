@@ -9,7 +9,9 @@
   "devDependencies": {
     "defence-cli": "^2.0.1",
     "istanbul": "^0.4.5",
-    "replace-require-self": "^1.1.1"
+    "replace-require-self": "^1.1.1",
+    "standard": "^10.0.2",
+    "standard-markdown": "^4.0.1"
   },
   "files": [
     "index.js"
@@ -20,6 +22,7 @@
     "test": "defence -i javascript README.md | replace-require-self | node",
     "precoverage": "defence -i javascript README.md | replace-require-self > README.js",
     "coverage": "istanbul cover -- README.js",
-    "postcoverage": "rm -f README.js ; istanbul check --100"
+    "postcoverage": "rm -f README.js ; istanbul check --100",
+    "lint": "standard && standard-markdown"
   }
 }

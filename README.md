@@ -2,7 +2,7 @@
 var assert = require('assert')
 var validateDirections = require('commonform-validate-directions')
 
-assert.strictEqual(
+assert.deepEqual(
   validateDirections(
     {
       content: [
@@ -25,10 +25,10 @@ assert.strictEqual(
       }
     ]
   ),
-  true
+  []
 )
 
-assert.strictEqual(
+assert.deepEqual(
   validateDirections(
     {
       content: [
@@ -48,8 +48,24 @@ assert.strictEqual(
         examples: ['SomeCo, Inc.']
       }
     ]
-  ).length,
-  1
+  ),
+  [
+    {
+      index: 0,
+      message: 'invalid property: invalid'
+    },
+    {
+      index: 0,
+      message: 'missing label property'
+    },
+    {
+      index: 0,
+      message: 'missing notes property'
+    },
+    {
+      message: 'no direction for blank at ["content",1]'
+    }
+  ]
 )
 
 assert.deepEqual(
@@ -76,10 +92,10 @@ assert.deepEqual(
   [
     {
       index: 0,
-      message: 'There is no blank at ["content",2].'
+      message: 'there is no blank at ["content",2]'
     },
     {
-      message: 'No direction for blank at ["content",1].'
+      message: 'no direction for blank at ["content",1]'
     }
   ]
 )
@@ -113,7 +129,7 @@ assert.deepEqual(
   [
     {
       index: 2,
-      message: 'Direction is for same blank as direction at index 1.'
+      message: 'direction is for same blank as direction at index 1'
     }
   ]
 )

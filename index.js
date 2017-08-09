@@ -68,30 +68,32 @@ module.exports = function validateDirections (form, directions) {
 
 function validateElement (element, index) {
   var returned = []
-  if (typeof element !== 'object') {
+  if (typeof element !== 'object' || element === null) {
     report('not an object')
   } else {
     if (!element.hasOwnProperty('blank')) {
       report('missing blank property')
-    }
-
-    if (!validBlankAddress(element.blank)) {
+    } else if (!validBlankAddress(element.blank)) {
       report('invalid blank address')
     }
 
     var keys = Object.keys(element)
+    var invalidKeys
     if (element.hasOwnProperty('sameAs')) {
-      if (keys.length !== 2) {
-        keys
-          .filter(function (key) {
-            return key !== 'blank' && key !== 'sameAs'
-          })
-          .forEach(function (invalidKey) {
-            report('invalid property: ' + invalidKey)
-          })
+      invalidKeys = keys.filter(function (key) {
+        return (
+          key !== 'blank' &&
+          key !== 'sameAs'
+        )
+      })
+
+      if (invalidKeys.length !== 0) {
+        invalidKeys.forEach(function (invalidKey) {
+          report('invalid property: ' + invalidKey)
+        })
       }
     } else {
-      var invalidKeys = keys.filter(function (key) {
+      invalidKeys = keys.filter(function (key) {
         return (
           key !== 'blank' &&
           key !== 'label' &&
@@ -104,12 +106,6 @@ function validateElement (element, index) {
         invalidKeys.forEach(function (invalidKey) {
           report('invalid property: ' + invalidKey)
         })
-      }
-
-      if (!keys.includes('blank')) {
-        report('missing blank property')
-      } else if (!validBlankAddress(element.blank)) {
-        report('invalid blank address')
       }
 
       if (!keys.includes('label')) {
@@ -150,25 +146,14 @@ function validBlankAddress (argument) {
     argument.length > 0 &&
     argument.every(function (element, index) {
       return (
-        (
-          element === 'content' &&
-          (
-            index === 0 ||
-            argument[index - 1] === 'form'
-          )
-        ) ||
-        (
-          element === 'form' &&
-          Number.isInteger(argument[index - 1])
-        ) ||
+        element === 'content' ||
+        element === 'form' ||
         (
           Number.isInteger(element) &&
-          element >= 0 &&
-          argument[index - 1] === 'content'
+          element >= 0
         )
       )
-    }) &&
-    Number.isInteger(argument[argument.length - 1])
+    })
   )
 }
 

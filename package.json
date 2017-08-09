@@ -8,6 +8,7 @@
   },
   "devDependencies": {
     "defence-cli": "^2.0.1",
+    "istanbul": "^0.4.5",
     "replace-require-self": "^1.1.1"
   },
   "files": [
@@ -16,6 +17,9 @@
   "license": "Apache-2.0",
   "repository": "kemitchell/commonform-validate-directions.js",
   "scripts": {
-    "test": "defence -i javascript README.md | replace-require-self | node"
+    "test": "defence -i javascript README.md | replace-require-self | node",
+    "precoverage": "defence -i javascript README.md | replace-require-self > README.js",
+    "coverage": "istanbul cover -- README.js",
+    "postcoverage": "rm -f README.js ; istanbul check --100"
   }
 }

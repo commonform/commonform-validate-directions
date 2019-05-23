@@ -17,7 +17,7 @@
     "index.js"
   ],
   "license": "Apache-2.0",
-  "repository": "kemitchell/commonform-validate-directions.js",
+  "repository": "commonform/commonform-validate-directions.js",
   "scripts": {
     "test": "defence -i javascript README.md | replace-require-self | node",
     "precoverage": "defence -i javascript README.md | replace-require-self > README.js",

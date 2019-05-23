@@ -1,3 +1,5 @@
+validate Common Form directions
+
 ```javascript
 var assert = require('assert')
 var validateDirections = require('commonform-validate-directions')

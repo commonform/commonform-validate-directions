@@ -2,7 +2,7 @@ var analyze = require('commonform-analyze')
 
 module.exports = function validateDirections (form, directions) {
   if (!Array.isArray(directions)) {
-    return [{message: 'not an array'}]
+    return [{ message: 'not an array' }]
   }
 
   var errors = directions.map(validateElement)
